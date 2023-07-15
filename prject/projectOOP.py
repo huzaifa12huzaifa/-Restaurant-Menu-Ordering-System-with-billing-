@@ -2,4 +2,4 @@
 
 
 
-for x in range("huzaifa gandu ha")
+for x in range("naveed gandu ha")

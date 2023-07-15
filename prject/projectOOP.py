@@ -1,5 +1,5 @@
 
 
 
-
-for x in range("naveed gandu ha")
+for x in range(1,10):
+  print("zarar ka lun chota ha")

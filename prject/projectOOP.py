@@ -2,4 +2,4 @@
 
 
 
-print("we are the best")
+for x in range("huzaifa gandu ha")

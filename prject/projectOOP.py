@@ -2,7 +2,8 @@ selected_starters = []
 selected_main_courses = []
 selected_drinks = []
 selected_desserts = []
-total_bill  =0
+total_bill = 0
+
 class Name:
     def __init__(self, name):
         self.name = name
@@ -84,12 +85,6 @@ class Menu(Name):
         if food_choice == "no":
             print(object1.print_name())
 
-
-class Main_Course(Name):
-    def __init__(self, name, menu):
-        super().__init__(name)
-        self.menu = menu
-
     def main_course(self):
         print("\t\tMain Course of the Restaurant")
         print("1. Grilled Chicken ------- $12.99")
@@ -105,47 +100,37 @@ class Main_Course(Name):
 
         choice = int(input("Please enter the choice of the main course you choose: "))
         global bill_main_course  # Use global variable
-        if choice == "1":
+        if choice == 1:
             print("Grilled Chicken")
             selected_main_courses.append("Grilled Chicken")
             bill_main_course = 12.99
         elif choice == "2":
             print("Beef Steak")
-            selected_main_courses.append("Beef Steak")
             bill_main_course = 16.99
         elif choice == "3":
             print("Vegetarian Pasta")
-            selected_main_courses.append("Vegetarian Pasta")
             bill_main_course = 10.99
         elif choice == "4":
             print("Shrimp Scampi")
-            selected_main_courses.append("Shrimp Scampi")
             bill_main_course = 14.99
         elif choice == "5":
             print("Margherita Pizza")
-            selected_main_courses.append("Margherita Pizza")
             bill_main_course = 11.99
         elif choice == "6":
             print("Salmon Fillet")
-            selected_main_courses.append("Salmon Fillet")
             bill_main_course = 15.99
         elif choice == "7":
             print("BBQ Ribs")
-            selected_main_courses.append("BBQ Ribs")
             bill_main_course = 17.99
         elif choice == "8":
             print("Eggplant Parmesan")
-            selected_main_courses.append("Eggplant Parmesan")
             bill_main_course = 10.99
         elif choice == "9":
             print("Tandoori Chicken")
-            selected_main_courses.append("Tandoori Chicken")
             bill_main_course = 13.99
         elif choice == "10":
             print("Sushi Platter")
-            selected_main_courses.append("Sushi Platter")
             bill_main_course = 18.99
-
         else:
             print("Invalid choice!")
         course_choice = input("You want to select more?  yes/no :")
@@ -158,12 +143,6 @@ class Main_Course(Name):
             print(object3.drinks())
         if drinks_choice == "no":
             print(object1.print_name())
-
-
-class Drinks(Name):
-    def __init__(self, name, menu):
-        super().__init__(name)
-        self.menu = menu
 
     def drinks(self):
         print("1. Cola ---------------- $2.99")
@@ -179,47 +158,37 @@ class Drinks(Name):
 
         choice = int(input("Please enter the choice of the beverage you choose: "))
         global bill_drinks  # Use global variable
-        if choice == "1":
+        if choice == 1:
             print("Cola")
             selected_drinks.append("Cola")
             bill_drinks = 2.99
         elif choice == "2":
             print("Lemonade")
-            selected_drinks.append("Lemonade")
             bill_drinks = 3.99
         elif choice == "3":
             print("Iced Tea")
-            selected_drinks.append("Iced Tea")
             bill_drinks = 2.99
         elif choice == "4":
             print("Orange Juice")
-            selected_drinks.append("Orange Juice")
             bill_drinks = 3.99
         elif choice == "5":
             print("Strawberry Smoothie")
-            selected_drinks.append("Strawberry Smoothie")
             bill_drinks = 4.99
         elif choice == "6":
             print("Mango Lassi")
-            selected_drinks.append("Mango Lassi")
             bill_drinks = 3.99
         elif choice == "7":
             print("Cappuccino")
-            selected_drinks.append("Cappuccino")
             bill_drinks = 3.99
         elif choice == "8":
             print("Hot Chocolate")
-            selected_drinks.append("Hot Chocolate")
             bill_drinks = 3.99
         elif choice == "9":
             print("Bottled Water")
-            selected_drinks.append("Bottled Water")
             bill_drinks = 1.99
         elif choice == "10":
             print("Sparkling Water")
-            selected_drinks.append("Sparkling Water")
             bill_drinks = 2.99
-
         else:
             print("Invalid choice!")
         course_choice = input("You want to select more?  yes/no :")
@@ -232,12 +201,6 @@ class Drinks(Name):
             print(object4.desert())
         if drinks_choice == "no":
             print(object1.print_name())
-
-
-class Deserts(Name):
-    def __init__(self, name, menu):
-        super().__init__(name)
-        self.menu = menu
 
     def desert(self):
         print("Our Desert hope you like it")
@@ -254,45 +217,36 @@ class Deserts(Name):
 
         choice = int(input("Please enter the choice of the dessert you choose: "))
         global bill_dessert  # Use global variable
-        if choice == "1":
+        if choice == 1:
             print("Chocolate Cake")
             selected_desserts.append("Chocolate Cake")
             bill_dessert = 6.99
         elif choice == "2":
             print("Apple Pie")
-            selected_desserts.append("Apple Pie")
             bill_dessert = 5.99
         elif choice == "3":
             print("Ice Cream Sundae")
-            selected_desserts.append("Ice Cream Sundae")
             bill_dessert = 4.99
         elif choice == "4":
             print("Cheesecake")
-            selected_desserts.append("Cheesecake")
             bill_dessert = 7.99
         elif choice == "5":
             print("Brownie")
-            selected_desserts.append("Brownie")
             bill_dessert = 4.99
         elif choice == "6":
             print("Tiramisu")
-            selected_desserts.append("Tiramisu")
             bill_dessert = 8.99
         elif choice == "7":
             print("Fruit Tart")
-            selected_desserts.append("Fruit Tart")
             bill_dessert = 6.99
         elif choice == "8":
             print("Panna Cotta")
-            selected_desserts.append("Panna Cotta")
             bill_dessert = 5.99
         elif choice == "9":
             print("Creme Brulee")
-            selected_desserts.append("Creme Brulee")
             bill_dessert = 7.99
         elif choice == "10":
             print("Churros")
-            selected_desserts.append("Churros")
             bill_dessert = 4.99
         else:
             print("Invalid choice!")
@@ -314,31 +268,30 @@ class Bill(Name):
         self.menu = menu
 
     def bill(self):
-        total_bill = bill_starter + bill_main_course + bill_drinks + bill_dessert
-
-    print("__________________Taste Junction________________|")
-    print("|----------------------------------------------|")
-    print("_______________  Your BILL ____________________|")
-    print("|----------------------------------------------|")
-    # Display selected items in each category
-    print("| Starters      >>>>>> ",selected_starters)
-    print("| Main Course  >>>>>> ",selected_main_courses)
-    print("| Drinks  >>>>>",selected_drinks)
-    print("| Desserts >>>>>>>>>>",selected_desserts)
-    print("|----------------------------------------------|")
-    print("| Total: $", total_bill)
-    print("|----------------------------------------------|")
-    print("|----------------------------------------------|")
-    print("|----------------------------------------------|")
+        total_bill = sum([bill_starter, bill_main_course, bill_drinks, bill_dessert])
+        print("__________________Taste Junction________________|")
+        print("|----------------------------------------------|")
+        print("_______________  Your BILL ____________________|")
+        print("|----------------------------------------------|")
+        # Display selected items in each category
+        print("| Starters      >>>>>> ", selected_starters)
+        print("| Main Course   >>>>>> ", selected_main_courses)
+        print("| Drinks        >>>>>> ", selected_drinks)
+        print("| Desserts      >>>>>> ", selected_desserts)
+        print("|----------------------------------------------|")
+        print("| Total: $", total_bill)
+        print("|----------------------------------------------|")
+        print("|----------------------------------------------|")
+        print("|----------------------------------------------|")
 
 
 name = "****************************** \n*       Taste Junction       *\n******************************"
 menu = "Menu of the Restaurant"
 
-object1 = Main_Course(name, menu)
+object1 = Menu(name, menu)  # Reorganized the classes to have Menu as the main class
 object2 = Menu(name, menu)
-object3 = Drinks(name, menu)
-object4 = Deserts(name, menu)
+object3 = Menu(name, menu)
+object4 = Menu(name, menu)
 object5 = Bill(name, menu)
 
 object1.print_name()
@@ -348,9 +301,9 @@ while True:
     menu_choice = int(input("Enter your choice here: "))
 
     if menu_choice == 1:
-        object2.starter()
+        object1.starter()
     elif menu_choice == 2:
-        object1.main_course()
+        object2.main_course()
     elif menu_choice == 3:
         object3.drinks()
     elif menu_choice == 4:
@@ -359,3 +312,6 @@ while True:
         break
     else:
         print("Invalid choice!")
+
+object5.bill()
+

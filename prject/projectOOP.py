@@ -3,6 +3,7 @@ selected_main_courses = []
 selected_drinks = []
 selected_desserts = []
 
+
 class Name:
     def __init__(self, name):
         self.name = name

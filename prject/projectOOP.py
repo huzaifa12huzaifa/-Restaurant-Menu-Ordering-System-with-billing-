@@ -1,94 +1,83 @@
-selected_starters = []
-selected_main_courses = []
-selected_drinks = []
-selected_desserts = []
 
+#Declare class name which is taking name and menu as a parameter
+class name:
+    def __init__(self,name,menu):
+        self.name=name           #Taking name
+        self.menu=menu           #Taking menu name
 
-class Name:
-    def __init__(self, name):
-        self.name = name
-
-    def print_name(self):
-        print(f">>>>>>>>>>>> Welcome To <<<<<<<<<<<<<<\n{self.name}")
-
-
-class Menu(Name):
-    def __init__(self, name, menu):
-        super().__init__(name)
-        self.menu = menu
-
+class Starter(name):
+    def __init__(self,name,menu):         #(this is the starter class that takes name,menu as a input)
+        super().__init__(name,menu)
+        self.starter_bill = 0          #Variable to store the value
+        self.starter_items = []      # an empty list to append the value
     def starter(self):
-        print("\t\t", self.menu)
         print("1. Classic Caesar Salad ----------- $8.99")
         print("2. Crispy Fried Calamari --------- $10.99")
         print("3. Garlic Parmesan Wings ---------- $9.99")
         print("4. Bruschetta --------------------- $7.99")
-        print("5. Spinach and Artichoke Dip ------ $8.99")
+        print("5. Spinach and Artichoke Dip ------ $8.99")   #(this is the starter option the user can use)
         print("6. Buffalo Chicken Sliders ------- $11.99")
         print("7. Loaded Potato Skins ------------ $9.99")
         print("8. Caprese Skewers ---------------- $8.99")
         print("9. Mini Quesadillas --------------- $7.99")
         print("10. Shrimp Cocktail -------------- $12.99")
 
-        choice = str(input("\n\nPlease enter the choice of the starter you choose! "))
-        global bill_starter  # Use global variable
-        if choice == "1":
-            print("Classic Caesar Salad")
-            selected_starters.append("Classic Caesar Salad")
-            bill_starter = 8.99
-        elif choice == "2":
+        self.star_choice = str(input("Enter the number of the cuisine you want to order: "))
+       #this is the starter choice that inputs a value
+        if self.star_choice == "1":
+            print("Classic Caesar Salad")           #user choice and add the item and amount in the bill
+            self.starter_bill += 8.99
+            self.starter_items.append("Classic Caesar Salad")
+        elif self.star_choice == "2":
             print("Crispy Fried Calamari")
-            selected_starters.append("Crispy Fried Calamari")
-            bill_starter = 10.99
-        elif choice == "3":
+            self.starter_bill += 10.99
+            self.starter_items.append("Crispy Fried Calamari")
+        elif self.star_choice == "3":
             print("Garlic Parmesan Wings")
-            selected_starters.append("Garlic Parmesan Wings")
-            bill_starter = 9.99
-        elif choice == "4":
+            self.starter_bill += 9.99
+            self.starter_items.append("Garlic Parmesan Wings")
+        elif self.star_choice == "4":
             print("Bruschetta")
-            selected_starters.append("Bruschetta")
-            bill_starter = 7.99
-        elif choice == "5":
+            self.starter_bill += 7.99
+            self.starter_items.append("Bruschetta")
+        elif self.star_choice == "5":
             print("Spinach and Artichoke Dip")
-            selected_starters.append("Spinach and Artichoke Dip")
-            bill_starter = 8.99
-        elif choice == "6":
+            self.starter_bill += 8.99
+            self.starter_items.append("Spinach and Artichoke Dip")
+        elif self.star_choice == "6":
             print("Buffalo Chicken Sliders")
-            selected_starters.append("Buffalo Chicken Sliders")
-            bill_starter = 11.99
-        elif choice == "7":
+            self.starter_bill += 11.99
+            self.starter_items.append("Buffalo Chicken Sliders")
+        elif self.star_choice == "7":
             print("Loaded Potato Skins")
-            selected_starters.append("Loaded Potato Skins")
-            bill_starter = 9.99
-        elif choice == "8":
+            self.starter_bill += 9.99
+            self.starter_items.append("Loaded Potato Skins")
+        elif self.star_choice == "8":
             print("Caprese Skewers")
-            selected_starters.append("Caprese Skewers")
-            bill_starter = 8.99
-        elif choice == "9":
+            self.starter_bill += 8.99
+            self.starter_items.append("Caprese Skewers")
+        elif self.star_choice == "9":
             print("Mini Quesadillas")
-            selected_starters.append("Mini Quesadillas")
-            bill_starter = 7.99
-        elif choice == "10":
+            self.starter_bill += 7.99
+            self.starter_items.append("Mini Quesadillas")
+        elif self.star_choice == "10":
             print("Shrimp Cocktail")
-            selected_starters.append("Shrimp Cocktail")
-            bill_starter = 12.99
+            self.starter_bill += 12.99
+            self.starter_items.append("Shrimp Cocktail")
         else:
-            print("Invalid choice!")
-        starter_choice = input("You want to select more? yes/no: ")
-        if starter_choice == "yes":
-            bill_starter += object1.starter()
-        if starter_choice == "no":
-            print("OK")
-        food_choice = input(("\nNow you want to see Main course of our Restaurent yes/no"))
-        if food_choice == "yes":
-            print(object1.main_course())
-        if food_choice == "no":
-            print(object1.print_name())
-        return bill_starter
+            print("Invalid choice. Please enter a valid number from the menu.")
+            obj1.starter()         #recall the function if user enter wrong choice
 
+#Main course that is subclass of starter class
+class Main_course(Starter):
+    def __init__(self, name, menu):
+        super().__init__(name, menu)
+        self.main_course_bill = 0         #reset the price when user choose an item
+        self.main_course_items = []       #append user choice
     def main_course(self):
+
         print("\t\tMain Course of the Restaurant")
-        print("1. Grilled Chicken ------- $12.99")
+        print("1. Grilled Chicken ------- $12.99")    #Main course of the resturent
         print("2. Beef Steak ------------ $16.99")
         print("3. Vegetarian Pasta ------ $10.99")
         print("4. Shrimp Scampi --------- $14.99")
@@ -99,134 +88,127 @@ class Menu(Name):
         print("9. Tandoori Chicken ------ $13.99")
         print("10. Sushi Platter -------- $18.99")
 
-        choice = str(input("Please enter the choice of the main course you choose: "))
-        global bill_main_course  # Use global variable
-        if choice == "1":
+        self.main_choice = str(input("Enter the number of the main course you want to order: "))
+
+        if self.main_choice == "1":
             print("Grilled Chicken")
-            selected_main_courses.append("Grilled Chicken")
-            bill_main_course = 12.99
-        elif choice == "2":
+            self.main_course_bill += 12.99          # the instance variables store the value of the bill
+            self.main_course_items.append("Grilled Chicken")
+        elif self.main_choice == "2":
             print("Beef Steak")
-            selected_main_courses.append("Beef Steak")
-            bill_main_course = 16.99
-        elif choice == "3":
+            self.main_course_bill += 16.99
+            self.main_course_items.append("Beef Steak")
+        elif self.main_choice == "3":
             print("Vegetarian Pasta")
-            selected_main_courses.append("Vegetarian Pasta")
-            bill_main_course = 10.99
-        elif choice == "4":
+            self.main_course_bill += 10.99
+            self.main_course_items.append("Vegetarian Pasta")
+        elif self.main_choice == "4":
             print("Shrimp Scampi")
-            selected_main_courses.append("Shrimp Scampi")
-            bill_main_course = 14.99
-        elif choice == "5":
+            self.main_course_bill += 14.99
+            self.main_course_items.append("Shrimp Scampi")
+        elif self.main_choice == "5":
             print("Margherita Pizza")
-            selected_main_courses.append("Margherita Pizza")
-            bill_main_course = 11.99
-        elif choice == "6":
+            self.main_course_bill += 11.99
+            self.main_course_items.append("Margherita Pizza")
+        elif self.main_choice == "6":
             print("Salmon Fillet")
-            selected_main_courses.append("Salmon Fillet")
-            bill_main_course = 15.99
-        elif choice == "7":
+            self.main_course_bill += 15.99
+            self.main_course_items.append("Salmon Fillet")
+        elif self.main_choice == "7":
             print("BBQ Ribs")
-            selected_main_courses.append("BBQ Ribs")
-            bill_main_course = 17.99
-        elif choice == "8":
+            self.main_course_bill += 17.99
+            self.main_course_items.append("BBQ Ribs")
+        elif self.main_choice == "8":
             print("Eggplant Parmesan")
-            selected_main_courses.append("Eggplant Parmesan")
-            bill_main_course = 10.99
-        elif choice == "9":
+            self.main_course_bill += 10.99
+            self.main_course_items.append("Eggplant Parmesan")
+        elif self.main_choice == "9":
             print("Tandoori Chicken")
-            selected_main_courses.append("Tandoori Chicken")
-            bill_main_course = 13.99
-        elif choice == "10":
+            self.main_course_bill += 13.99
+            self.main_course_items.append("Tandoori Chicken")
+        elif self.main_choice == "10":
             print("Sushi Platter")
-            selected_main_courses.append("Sushi Platter")
-            bill_main_course = 18.99
+            self.main_course_bill += 18.99
+            self.main_course_items.append("Sushi Platter")
+        else:
+            print("Invalid choice. Please enter a valid number from the menu.")
+            obj2.main_course()          #recall the function if user input invalid choice
 
-        else:
-            print("Invalid choice!")
-        course_choice = input("You want to select more? yes/no: ")
-        if course_choice == "yes":
-            bill_main_course += object2.main_course()
-        else:
-            print("OK")
-
-        drinks_choice = input("\nNow you want to see Drinks of our Restaurant? yes/no: ")
-        if drinks_choice == "yes":
-            print(object3.drinks())
-        else:
-            print(object1.print_name())
-        return  bill_main_course
+#Drink class which is inherit with Main course
+class Drinks(Main_course):
+    def __init__(self, name, menu):
+        super().__init__(name, menu)
+        self.drinks_bill = 0
+        self.drinks_items = []          #append the item in this empty list
 
     def drinks(self):
         print("1. Cola ---------------- $2.99")
         print("2. Lemonade ------------ $3.99")
         print("3. Iced Tea ------------ $2.99")
         print("4. Orange Juice -------- $3.99")
-        print("5. Strawberry Smoothie - $4.99")
+        print("5. Strawberry Smoothie - $4.99")                #Drinks which are available
         print("6. Mango Lassi --------- $3.99")
         print("7. Cappuccino ---------- $3.99")
         print("8. Hot Chocolate ------- $3.99")
-        print("9. Bottled Water --------$1.99")
+        print("9. Bottled Water -------- $1.99")
         print("10. Sparkling Water ---- $2.99")
 
-        choice = str(input("Please enter the choice of the beverage you choose: "))
-        global bill_drinks  # Use global variable
-        if choice == "1":
-            print("Cola")
-            selected_drinks.append("Cola")
-            bill_drinks = 2.99
-        elif choice == "2":
-            print("Lemonade")
-            selected_drinks.append("Lemonade")
-            bill_drinks = 3.99
-        elif choice == "3":
-            print("Iced Tea")
-            selected_drinks.append("Iced Tea")
-            bill_drinks = 2.99
-        elif choice == "4":
-            print("Orange Juice")
-            selected_drinks.append("Orange Juice")
-            bill_drinks = 3.99
-        elif choice == "5":
-            print("Strawberry Smoothie")
-            selected_drinks.append("Strawberry Smoothie")
-            bill_drinks = 4.99
-        elif choice == "6":
-            print("Mango Lassi")
-            selected_drinks.append("Mango Lassi")
-            bill_drinks = 3.99
-        elif choice == "7":
-            print("Cappuccino")
-            selected_drinks.append("Cappuccino")
-            bill_drinks = 3.99
-        elif choice == "8":
-            print("Hot Chocolate")
-            selected_drinks.append("Hot Chocolate")
-            bill_drinks = 3.99
-        elif choice == "9":
-            print("Bottled Water")
-            selected_drinks.append("Bottled Water")
-            bill_drinks = 1.99
-        elif choice == "10":
-            print("Sparkling Water")
-            selected_drinks.append("Sparkling Water")
-            bill_drinks = 2.99
-        else:
-            print("Invalid choice!")
-        drinks_choice = input("You want to select more? yes/no: ")
-        if drinks_choice == "yes":
-            bill_drinks += object3.drinks()
-        if drinks_choice == "no":
-            print("OK")
-        drinks_choice = input(("\nNow you want to see Desert of our Restaurent yes/no"))
-        if drinks_choice == "yes":
-            print(object4.desert())
-        if drinks_choice == "no":
-            print(object1.print_name())
-        return bill_drinks
+        self.drink_choice = str(input("Enter the number of the drink you want to order: "))
 
-    def desert(self):
-        print("Our Desert hope you like it")
+        if self.drink_choice == "1":
+            print("Cola")
+            self.drinks_bill += 2.99
+            self.drinks_items.append("Cola")
+        elif self.drink_choice == "2":
+            print("Lemonade")
+            self.drinks_bill += 3.99
+            self.drinks_items.append("Lemonade")
+        elif self.drink_choice == "3":
+            print("Iced Tea")
+            self.drinks_bill += 2.99
+            self.drinks_items.append("Iced Tea")
+        elif self.drink_choice == "4":
+            print("Orange Juice")
+            self.drinks_bill += 3.99
+            self.drinks_items.append("Orange Juice")
+        elif self.drink_choice == "5":
+            print("Strawberry Smoothie")
+            self.drinks_bill += 4.99
+            self.drinks_items.append("Strawberry Smoothie")
+        elif self.drink_choice == "6":
+            print("Mango Lassi")
+            self.drinks_bill += 3.99
+            self.drinks_items.append("Mango Lassi")
+        elif self.drink_choice == "7":
+            print("Cappuccino")
+            self.drinks_bill += 3.99
+            self.drinks_items.append("Cappuccino")
+        elif self.drink_choice == "8":
+            print("Hot Chocolate")
+            self.drinks_bill += 3.99
+            self.drinks_items.append("Hot Chocolate")
+        elif self.drink_choice == "9":
+            print("Bottled Water")
+            self.drinks_bill += 1.99
+            self.drinks_items.append("Bottled Water")
+        elif self.drink_choice == "10":
+            print("Sparkling Water")
+            self.drinks_bill += 2.99
+            self.drinks_items.append("Sparkling Water")
+        else:
+            print("Invalid choice. Please enter a valid number from the menu.")
+            obj3.drinks()
+#Deserts class that inherit with Drinks class
+class Desserts(Drinks):
+
+    def __init__(self, name, menu):
+        super().__init__(name, menu)
+        self.desserts_bill = 0
+        self.desserts_items = []            #empty list to store the item
+
+
+    def desserts(self):
+        print("Our Desserts, hope you like them!")
         print("1. Chocolate Cake ------- $6.99")
         print("2. Apple Pie ------------ $5.99")
         print("3. Ice Cream Sundae ----- $4.99")
@@ -238,116 +220,106 @@ class Menu(Name):
         print("9. Creme Brulee --------- $7.99")
         print("10. Churros -------------- $4.99")
 
-        choice = str(input("Please enter the choice of the dessert you choose: "))
-        global bill_dessert  # Use global variable
-        if choice == "1":
+        self.dessert_choice = str(input("Enter the number of the dessert you want to order: "))
+
+        if self.dessert_choice == "1":
             print("Chocolate Cake")
-            selected_desserts.append("Chocolate Cake")
-            bill_dessert = 6.99
-        elif choice == "2":
+            self.desserts_bill += 6.99
+            self.desserts_items.append("Chocolate Cake")          #append the item in the list
+        elif self.dessert_choice == "2":
             print("Apple Pie")
-            selected_desserts.append("Apple Pie")
-            bill_dessert = 5.99
-        elif choice == "3":
+            self.desserts_bill += 5.99
+            self.desserts_items.append("Apple Pie")
+        elif self.dessert_choice == "3":
             print("Ice Cream Sundae")
-            selected_desserts.append("Ice Cream Sundae")
-            bill_dessert = 4.99
-        elif choice == "4":
+            self.desserts_bill += 4.99
+            self.desserts_items.append("Ice Cream Sundae")
+        elif self.dessert_choice == "4":
             print("Cheesecake")
-            selected_desserts.append("Cheesecake")
-            bill_dessert = 7.99
-        elif choice == "5":
+            self.desserts_bill += 7.99
+            self.desserts_items.append("Cheesecake")
+        elif self.dessert_choice == "5":
             print("Brownie")
-            selected_desserts.append("Brownie")
-            bill_dessert = 4.99
-        elif choice == "6":
+            self.desserts_bill += 4.99
+            self.desserts_items.append("Brownie")
+        elif self.dessert_choice == "6":
             print("Tiramisu")
-            selected_desserts.append("Tiramisu")
-            bill_dessert = 8.99
-        elif choice == "7":
+            self.desserts_bill += 8.99
+            self.desserts_items.append("Tiramisu")
+        elif self.dessert_choice == "7":
             print("Fruit Tart")
-            selected_desserts.append("Fruit Tart")
-            bill_dessert = 6.99
-        elif choice == "8":
+            self.desserts_bill += 6.99
+            self.desserts_items.append("Fruit Tart")
+        elif self.dessert_choice == "8":
             print("Panna Cotta")
-            selected_desserts.append("Panna Cotta")
-            bill_dessert = 5.99
-        elif choice == "9":
+            self.desserts_bill += 5.99
+            self.desserts_items.append("Panna Cotta")
+        elif self.dessert_choice == "9":
             print("Creme Brulee")
-            selected_desserts.append("Creme Brulee")
-            bill_dessert = 7.99
-        elif choice == "10":
+            self.desserts_bill += 7.99
+            self.desserts_items.append("Creme Brulee")
+        elif self.dessert_choice == "10":
             print("Churros")
-            selected_desserts.append("Churros")
-            bill_dessert = 4.99
+            self.desserts_bill += 4.99
+            self.desserts_items.append("Churros")
         else:
-            print("Invalid choice!")
-        desert_choice = input("You want to select more? yes/no: ")
-        if desert_choice == "yes":
-            bill_dessert += object4.desert()
-        if desert_choice == "no":
-            print("OK")
-        drinks_choice = input(("\nNow you want to see your bill  yes/no"))
-        if drinks_choice == "yes":
-            print(object5.bill())
-        if drinks_choice == "no":
-            print(object1.print_name())
-        return bill_dessert
+            print("Invalid choice. Please enter a valid number from the menu.")
+            obj4.desserts()
 
-class Bill(Name):
-    def __init__(self, name, menu):
-        super().__init__(name)
-        self.menu = menu
-        self.bill_starter = 0
-        self.bill_main_course = 0
-        self.bill_drinks = 0
-        self.bill_dessert = 0
 
+class Bill():
+    def __init__(self, starter,main_course,drinks,desserts):
+        self.starter = starter
+        self.main_course = main_course
+        self.drinks = drinks                      #instant variables that store classes
+        self.desserts = desserts
+
+
+                     #Bill function for print the bill........
     def bill(self):
-        total_bill = self.bill_starter + self.bill_main_course + self.bill_drinks + self.bill_dessert
         print("__________________Taste Junction________________|")
         print("|----------------------------------------------|")
         print("_______________  Your BILL ____________________|")
         print("|----------------------------------------------|")
         # Display selected items in each category
-        print("| Starters      >>>>>> ", selected_starters)
-        print("| Main Course   >>>>>> ", selected_main_courses)
-        print("| Drinks        >>>>>> ", selected_drinks)
-        print("| Desserts      >>>>>> ", selected_desserts)
+        print("| Starters      >>>>>> ", self.starter.starter_items)
+        print("| Main Course   >>>>>> ", self.main_course.main_course_items)
+        print("| Drinks        >>>>>> ", self.drinks.drinks_items)
+        print("| Desserts      >>>>>> ", self.desserts.desserts_items)
         print("|----------------------------------------------|")
-        print("| Total: $", total_bill)
+        print("| Total: $", (self.starter.starter_bill + self.main_course.main_course_bill + self.drinks.drinks_bill + self.desserts.desserts_bill))
         print("|----------------------------------------------|")
         print("|----------------------------------------------|")
         print("|----------------------------------------------|")
 
 
-name = "****************************** \n*       Taste Junction       *\n******************************"
-menu = "Menu of the Restaurant"
 
-object1 = Menu(name, menu)  # Reorganized the classes to have Menu as the main class
-object2 = Menu(name, menu)
-object3 = Menu(name, menu)
-object4 = Menu(name, menu)
-object5 = Bill(name, menu)
 
-object1.print_name()
+name="****************************** \n*   Taste Junction  *\n******************************"    #Name
+print("Welcome to Taste Junction how can we help u!!!!")
+menu="Menu of the Resturant"       #Menu
+obj1=Starter(name,menu)        #For Starter class
+obj2=Main_course(name,menu)    #For Main course class
+obj3=Drinks(name,menu)         #For Drink class
+obj4=Desserts(name,menu)       #For Desert class
+obj5=Bill(obj1,obj2,obj3,obj4)
+while(True):
+    i=str(input("enter 1 to see the menu!!"))
+    if i=="1":
+        print("Press\n1.Starter\n2.Main Course\n3.Drinks\n4.Dessert\n5.Bill")
+        m_choice=str(input("enter the number u wana select"))
+        if m_choice=="1":
+            obj1.starter()
+        if m_choice=="2":
+            obj2.main_course()
+        if m_choice=="3":
+            obj3.drinks()
+        if m_choice=="4":
+            obj4.desserts()
+        if m_choice=="5":
+            obj5.bill()
 
-while True:
-    print("Press\n1. For See Starter\n2. For See Main Course\n3. For see Drinks\n4. For see Dessert\n0. To Exit")
-    menu_choice = int(input("Enter your choice here: "))
-
-    if menu_choice == 1:
-        object1.starter()
-    elif menu_choice == 2:
-        object2.main_course()
-    elif menu_choice == 3:
-        object3.drinks()
-    elif menu_choice == 4:
-        object4.desert()
-    elif menu_choice == 0:
-        break
     else:
-        print("Invalid choice!")
+        print("invalid")
 
-object5.bill()
 
